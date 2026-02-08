@@ -1,0 +1,39 @@
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        // Ported from /Users/tjennerjahn/Documents/Keyboards/zmk-config/config/cradio.keymap
+
+        // Toggle to layer 3 when Y+U are tapped.
+        layer3 {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&to 3>;
+        };
+
+        // ESC when D+F are tapped (base layer only).
+        escape_key {
+            timeout-ms = <20>;
+            key-positions = <15 16>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+
+        // TAB when K+L are tapped (base layer only).
+        tab_key {
+            timeout-ms = <20>;
+            key-positions = <20 21>;
+            bindings = <&kp TAB>;
+            layers = <0>;
+        };
+
+        // macOS lock screen (Ctrl+Cmd+Q) when ,+. are tapped (base layer only).
+        lock_screen {
+            timeout-ms = <20>;
+            key-positions = <32 33>;
+            bindings = <&kp LC(LG(Q))>;
+            layers = <0>;
+        };
+    };
+};
+

@@ -225,5 +225,81 @@
             bindings      = <&kp COMMA>, <&kp SEMICOLON>;
             mods          = <(MOD_LSFT | MOD_RSFT)>;
         };
+
+        // ---- Cradio-ported behaviors ----
+
+        // Hold-tap used for autoumlauts (Option+<key> on hold).
+        au: auto_umlauts {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        // Tap dances used on the cradio symbol/number layer.
+        td_grave: tap_dance_grave {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp GRAVE>, <&kp TILDE>;
+        };
+
+        td_bkt: tap_dance_bkt {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LBKT>, <&kp RBKT>;
+        };
+
+        td_par: tap_dance_par {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LPAR>, <&kp RPAR>;
+        };
+
+        td_brc: tap_dance_brc {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LBRC>, <&kp RBRC>;
+        };
+
+        td_qt: tap_dance_qt {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht_left LALT SQT>, <&kp DQT>;
+        };
+
+        td_excl: tap_dance_excl {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp EXCL>, <&excl_eq>;
+        };
+
+        td_dot: td_dot {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DOT>, <&kp COMMA>;
+        };
+
+        td_slash: td_slash {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SLASH>, <&kp BSLH>;
+        };
+
+        td_astrk: td_astrk {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp ASTRK>, <&kp HASH>;
+        };
     };
 };

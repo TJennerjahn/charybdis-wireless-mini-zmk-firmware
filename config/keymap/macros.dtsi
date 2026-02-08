@@ -230,5 +230,12 @@
                 , <&macro_tap &kp FSLH>
                 ;
         };
+
+        // Ported from cradio: type "!=" via tap-dance.
+        excl_eq: excl_eq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL &kp EQUAL>;
+        };
     };
 };
