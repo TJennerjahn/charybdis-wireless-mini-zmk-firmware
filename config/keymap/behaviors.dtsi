@@ -228,14 +228,70 @@
 
         // ---- Cradio-ported behaviors ----
 
-        // Hold-tap used for autoumlauts (Option+<key> on hold).
-        au: auto_umlauts {
+        // Linux-friendly umlauts on hold: Ctrl+Shift+U + hex + Space.
+        // Tap outputs the base letter.
+        mm_um_a: mm_um_a {
+            compatible    = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings      = <&um_ae>, <&um_AE>;
+            mods          = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_um_o: mm_um_o {
+            compatible    = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings      = <&um_oe>, <&um_OE>;
+            mods          = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_um_u: mm_um_u {
+            compatible    = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings      = <&um_ue>, <&um_UE>;
+            mods          = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_um_s: mm_um_s {
+            compatible    = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings      = <&um_ss>, <&um_SS>;
+            mods          = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        ht_um_a: ht_um_a {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             tapping-term-ms = <225>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&mm_um_a>, <&kp>;
+        };
+
+        ht_um_o: ht_um_o {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&mm_um_o>, <&kp>;
+        };
+
+        ht_um_u: ht_um_u {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&mm_um_u>, <&kp>;
+        };
+
+        ht_um_s: ht_um_s {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&mm_um_s>, <&kp>;
         };
 
         // Tap dances used on the cradio symbol/number layer.
