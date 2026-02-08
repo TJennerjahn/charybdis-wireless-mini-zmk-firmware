@@ -182,14 +182,17 @@ jobs:
           # tree $GITHUB_WORKSPACE
 
           echo "🛠 Kicking off the firmware build..."
+          EXTRA_CMAKE_ARGS=()
+          [[ -n "$KEYMAP_OPTION" ]] && EXTRA_CMAKE_ARGS+=("$KEYMAP_OPTION")
+          [[ -n "$SNIPPET_OPTION" ]] && EXTRA_CMAKE_ARGS+=("$SNIPPET_OPTION")
+
           west build -p \
             -d "$BUILD_DIR" \
             -b "$BD" \
             -- \
             "-DZMK_CONFIG=$CONFIG_DIR" \
             "-DSHIELD=$SH" \
-            "$KEYMAP_OPTION" \
-            "$SNIPPET_OPTION"
+            "${EXTRA_CMAKE_ARGS[@]}"
 
           ART=$(if [[ -f "$BUILD_DIR/zephyr/zmk.uf2" ]]; then echo zmk.uf2; else echo zmk.bin; fi)
           cp "$BUILD_DIR/zephyr/$ART" "$GITHUB_WORKSPACE/out/$NM/$SH.${ART##*.}"
