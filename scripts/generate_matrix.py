@@ -2,7 +2,8 @@ import json
 from pathlib import Path
 
 # === CONFIGURATION ===
-board = "nice_nano_v2"
+# ZMK renamed the Nice!Nano v2 board from "nice_nano_v2" to "nice_nano" in newer trees.
+board = "nice_nano"
 # automatically find all *.keymap filenames under ../config/keymap
 keymap_dir = Path(__file__).parent.parent / "config" / "keymap"
 keymaps = sorted(p.stem for p in keymap_dir.glob("*.keymap"))
