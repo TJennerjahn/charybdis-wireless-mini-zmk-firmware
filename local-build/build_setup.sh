@@ -170,9 +170,11 @@ for shield in "${shields[@]}"; do
       printf "🗂  %s\n" "→ Build dir: $BUILD_DIR"
       printf "🛡  %s\n" "→ Building: shield=$shield, target=$target keymap=$keymap, board=$board"
 
-      # Turn on ZMK Studio for right-side BT builds only
+      # Turn on ZMK Studio for the device that is USB-attached to the host:
+      # - BT format: right half is central + USB
+      # - Dongle format: charybdis_dongle is central + USB
       STUDIO_SNIPPET=""
-      if [[ "$shield" == *bt* && "$target" == *right ]]; then
+      if [[ ( "$shield" == *bt* && "$target" == *right ) || ( "$shield" == *dongle* && "$target" == *dongle ) ]]; then
         STUDIO_SNIPPET="-S studio-rpc-usb-uart"
       fi
 

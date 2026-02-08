@@ -81,7 +81,7 @@ To see all the layers check out the [full render](keymap-drawer/qwerty.svg).
   - Patched to remove build warnings and prevent cursor jump on wake
 - **Hold-tap side-aware triggers:** Each HRM key only becomes a modifier if the opposite half is active, preventing accidental holds while one-handed.
 - **Quick-tap / prior-idle:** Tuned for faster mod-vs-tap detection.
-- **ZMK Studio:** Supported on BT builds for quick and easy keymap adjustments. Dongle support will come soon.
+- **ZMK Studio:** Supported on BT and dongle builds for quick and easy keymap adjustments.
 
 
 ## Customize Keymaps, Layers, & Trackball
@@ -104,7 +104,7 @@ Delete the shield directory (charybdis_dongle or charybdis_bt) from the config/b
 
 **ZMK Studio**
 
-[ZMK Studio](https://zmk.studio/) allows users to update functionality during runtime. It's currently only implemented on the Bluetooth builds.
+[ZMK Studio](https://zmk.studio/) allows users to update functionality during runtime. This repo enables it for both Bluetooth and dongle builds (on the USB-attached central device).
 
 To change the visual layout of the keys, the physical layout must be updated. This is the charybdis-layouts.dtsi file, which handles the actual physical positions of the keys. Though they may appear to be similar, this is different than the matrix transform file (charybdis.json) which handles the electrical matrix to keymap relationship.
 

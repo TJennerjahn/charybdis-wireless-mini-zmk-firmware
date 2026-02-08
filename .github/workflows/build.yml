@@ -148,8 +148,10 @@ jobs:
         for SH in ${LIST[$FM]}; do
           BUILD_DIR=$(mktemp -d)
 
-          # studio RPC only on right half of BT builds
-          if [[ "$FM" == "bt" && "$SH" == *right ]]; then
+          # studio RPC on the device that is USB-attached to the host:
+          # - BT format: right half is central + USB
+          # - Dongle format: charybdis_dongle is central + USB
+          if [[ ( "$FM" == "bt" && "$SH" == "charybdis_right" ) || ( "$FM" == "dongle" && "$SH" == "charybdis_dongle" ) ]]; then
             SNIPPET_OPTION="-DSNIPPET=studio-rpc-usb-uart"
           else
             SNIPPET_OPTION=""
