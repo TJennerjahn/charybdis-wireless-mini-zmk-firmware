@@ -238,7 +238,13 @@
             bindings = <&kp EXCL &kp EQUAL>;
         };
 
-        // Linux-friendly umlauts using Ctrl+Shift+U + hex + Space.
+        // Umlauts (portable in terminals): "US International (with dead keys)" layout.
+        //
+        // This avoids relying on Ctrl+Shift+U Unicode entry, which is not implemented by many terminal
+        // emulators (e.g. kitty/alacritty/wezterm) and often ends up typing the literal sequence.
+        //
+        // Requirements on the host:
+        // - Linux: set keyboard layout to "English (US, intl., with dead keys)" (Debian 12 has this).
         //
         // NOTE: These are defined as "one-param" macros so they can be used as the *hold* side of a hold-tap
         // behavior (hold-tap passes one parameter to the hold binding). The parameter is ignored.
@@ -249,10 +255,8 @@
             wait-ms = <10>;
             tap-ms = <20>;
             bindings
-                = <&macro_press &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp U>
-                , <&macro_release &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp N0 &kp N0 &kp E &kp N4 &kp SPC>
+                = <&macro_tap &kp DQT>
+                , <&macro_tap &kp A>
                 ;
         };
 
@@ -262,10 +266,8 @@
             wait-ms = <10>;
             tap-ms = <20>;
             bindings
-                = <&macro_press &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp U>
-                , <&macro_release &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp N0 &kp N0 &kp F &kp N6 &kp SPC>
+                = <&macro_tap &kp DQT>
+                , <&macro_tap &kp O>
                 ;
         };
 
@@ -275,10 +277,8 @@
             wait-ms = <10>;
             tap-ms = <20>;
             bindings
-                = <&macro_press &kp LCTRL &kp LSHFT>
+                = <&macro_tap &kp DQT>
                 , <&macro_tap &kp U>
-                , <&macro_release &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp N0 &kp N0 &kp F &kp C &kp SPC>
                 ;
         };
 
@@ -288,10 +288,7 @@
             wait-ms = <10>;
             tap-ms = <20>;
             bindings
-                = <&macro_press &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp U>
-                , <&macro_release &kp LCTRL &kp LSHFT>
-                , <&macro_tap &kp N0 &kp N0 &kp D &kp F &kp SPC>
+                = <&macro_tap &kp RA(S)>
                 ;
         };
     };

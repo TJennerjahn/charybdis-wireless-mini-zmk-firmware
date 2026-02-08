@@ -228,7 +228,7 @@
 
         // ---- Cradio-ported behaviors ----
 
-        // Linux-friendly umlauts on hold: Ctrl+Shift+U + hex + Space.
+        // Umlauts on hold (see macros.dtsi): expects "US International (with dead keys)" on the host.
         // Hold emits the umlaut macro, tap emits the base letter.
         au_ae: au_ae {
             compatible = "zmk,behavior-hold-tap";
