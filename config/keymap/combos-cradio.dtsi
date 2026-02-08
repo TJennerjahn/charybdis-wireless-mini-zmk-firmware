@@ -4,11 +4,12 @@
 
         // Ported from /Users/tjennerjahn/Documents/Keyboards/zmk-config/config/cradio.keymap
 
-        // Toggle to layer 3 when Y+U are tapped.
-        layer3 {
+        // Momentary Xtra layer while holding the inner thumbs (one per half).
+        combo_xtra_hold {
             timeout-ms = <50>;
-            key-positions = <6 7>;
-            bindings = <&to 3>;
+            key-positions = <38 39>;
+            bindings = <&mo 3>;
+            layers = <0>;
         };
 
         // ESC when D+F are tapped (base layer only).
@@ -34,6 +35,7 @@
             bindings = <&kp LC(LG(Q))>;
             layers = <0>;
         };
+
+        // Bootloader is directly bound on the Xtra layer (see layer_3 in qwerty.keymap).
     };
 };
-
