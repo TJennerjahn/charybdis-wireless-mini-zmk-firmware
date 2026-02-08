@@ -1,0 +1,6 @@
+menuconfig ZMK_BATTERY_PRINT
+    bool "Battery print behavior module"
+    default y
+    help
+      Provides a custom behavior to type split battery percentages into the host.
+

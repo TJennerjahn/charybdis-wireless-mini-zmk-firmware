@@ -205,6 +205,7 @@ jobs:
             -- \
             "-DZMK_CONFIG=$CONFIG_DIR" \
             "-DSHIELD=$SH" \
+            "-DZMK_EXTRA_MODULES=$GITHUB_WORKSPACE/zmk-battery-print" \
             "${EXTRA_CMAKE_ARGS[@]}"
 
           ART=$(if [[ -f "$BUILD_DIR/zephyr/zmk.uf2" ]]; then echo zmk.uf2; else echo zmk.bin; fi)
