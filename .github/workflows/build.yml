@@ -86,6 +86,17 @@ jobs:
         echo "👀 West workspace ready. Project structure:"
         west list
 
+    - name: Fix PMW3610 binding conflict (Zephyr 4.x)
+      shell: bash
+      run: |
+        set -euo pipefail
+        # Zephyr 4.x ships a PMW3610 binding; the external module also has one.
+        # When both exist, dtlib errors with duplicate 'compatible: pixart,pmw3610'.
+        if [[ -f "$GITHUB_WORKSPACE/zephyr/dts/bindings/input/pixart,pmw3610.yaml" ]]; then
+          rm -f "$GITHUB_WORKSPACE/zmk-pmw3610-driver/dts/bindings/pixart,pmw3610.yml" \
+                "$GITHUB_WORKSPACE/zmk-pmw3610-driver/dts/bindings/pixart,pmw3610.yaml" || true
+        fi
+
     # ───────── pull in keymaps ─────────
     - name: Download keymaps
       uses: actions/download-artifact@v4

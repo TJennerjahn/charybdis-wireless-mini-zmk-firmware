@@ -35,6 +35,13 @@ west update
 echo "🛠️  Setting Zephyr build environment..."
 west zephyr-export
 
+# Zephyr 4.x includes a PMW3610 devicetree binding; the external driver module also ships one.
+# When both are present, dtlib fails with a duplicate 'compatible: pixart,pmw3610' error.
+if [ -f "zephyr/dts/bindings/input/pixart,pmw3610.yaml" ]; then
+  rm -f "zmk-pmw3610-driver/dts/bindings/pixart,pmw3610.yml" \
+        "zmk-pmw3610-driver/dts/bindings/pixart,pmw3610.yaml" 2>/dev/null || true
+fi
+
 # Set permissions so users can delete them
 echo "🛠️  Setting permissions on ZMK resources:"
 chmod -R 777 .west zmk zephyr modules zmk-pmw3610-driver
