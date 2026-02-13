@@ -48,7 +48,7 @@
             bindings = <
                 &none  &kp Q            &kp W            &kp E             &kp R             &kp T             &kp Y             &au_ue U U         &kp I             &au_oe O O         &kp P             &none
                 &none  &au_ae A A       &au_ss S S       &kp D             &kp F             &kp G             &kp H             &kp J             &kp K             &kp L             &kp SEMI          &none
-                &mo 7  &ht_left LCTRL Z &ht_left LCMD X  &kp C             &kp V             &kp B             &kp N             &kp M             &kp COMMA         &ht_right LCMD DOT &ht_right LCTRL SLASH &none
+                &mo 7  &ht_left_any LCTRL Z &ht_left_any LCMD X  &ht_left_any LALT C  &kp V             &kp B             &kp N             &kp M             &ht_right RALT COMMA &ht_right RCMD DOT &ht_right RCTRL SLASH &none
                                               &mo 6          &lt L1 SPACE   &kp LSHFT        &mt LC(LS(LALT)) BSPC   &lt L2 ENTER
             >;
         };
@@ -76,8 +76,8 @@
         layer_3 {
             display-name = "Xtra";
             bindings = <
-                &batt_print      &shrug          &lgtm           &gcm            &bootloader     &kp C_BRIGHTNESS_INC    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3     &out OUT_TOG      &bt BT_CLR
-                &kp C_SLEEP      &sudo           &none           &none           &none           &kp C_BRIGHTNESS_DEC    &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP       &kp C_NEXT        &none
+                &batt_print      &shrug          &lgtm           &gcm            &kp C_VOLUME_UP    &kp C_BRIGHTNESS_INC    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3     &out OUT_TOG      &bt BT_CLR
+                &kp C_SLEEP      &sudo           &none           &none           &kp C_VOLUME_DOWN  &kp C_BRIGHTNESS_DEC    &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP       &kp C_NEXT        &none
                 &kp C_AL_COFFEE  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE  &none                   &new_dir      &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp PRINTSCREEN   &none
                                                                                                    &none  &none  &none    &none         &none
             >;
@@ -108,7 +108,7 @@
             display-name = "Mouse (Slow)";
             bindings = <
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &mkp MCLK &mkp LCLK &mkp RCLK &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &mkp MCLK &mkp LCLK &mkp RCLK &mkp MB4 &mkp MB5 &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                                       &trans &trans &trans &trans &trans
             >;
@@ -117,7 +117,7 @@
         layer_7 {
             display-name = "Scroll";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                                       &trans &trans &trans &trans &trans

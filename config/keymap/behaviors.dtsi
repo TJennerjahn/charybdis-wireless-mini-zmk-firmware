@@ -111,6 +111,19 @@
             hold-trigger-key-positions = <KEYS_R THUMBS>;
         };
 
+        // Left-hand HRM variant without opposite-hand gating.
+        // Use this for same-hand shortcuts like Ctrl+T.
+        ht_left_any: left_side_homerow_mod_any {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <65>;
+            retro-tap;
+            bindings = <&kp>, <&kp>;
+        };
+
         // Right-hand HRM
         ht_right: right_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
