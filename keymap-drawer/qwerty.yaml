@@ -28,14 +28,14 @@ layers:
   - Scroll
   - {t: Z, h: LCTRL}
   - {t: X, h: LCMD}
-  - C
+  - {t: C, h: LALT}
   - V
   - B
   - N
   - M
-  - ','
-  - {t: ., h: LCMD}
-  - {t: /, h: LCTRL}
+  - {t: ',', h: RALT}
+  - {t: ., h: RCMD}
+  - {t: /, h: RCTRL}
   - ''
   - Mouse (Slow)
   - {t: SPACE, h: Icons/Num}
@@ -131,7 +131,7 @@ layers:
   - SHRUG
   - LGTM
   - GIT COMMIT
-  - BOOT LDR
+  - VOLUME UP
   - BRIGHT ▲
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
@@ -139,11 +139,11 @@ layers:
   - {t: BT, h: '3'}
   - OUT TOG
   - BT CLR
-  - SLEEP
+  - AL LOCK
   - sudo!!
   - ''
   - ''
-  - ''
+  - VOLUME DOWN
   - BRIGHT ▼
   - ''
   - PREVIOUS
@@ -271,8 +271,8 @@ layers:
   - Mid CLK
   - L CLK
   - R CLK
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - BACK
+  - FWD
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -295,18 +295,18 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   Scroll:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - F12
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
