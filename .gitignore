@@ -2,6 +2,8 @@
 zmk/
 zephyr/
 !zephyr/module.yml
+!zmk-battery-print/zephyr/
+!zmk-battery-print/zephyr/module.yml
 modules/
 zmk-pmw3610-driver/
 local-build/logs.txt
