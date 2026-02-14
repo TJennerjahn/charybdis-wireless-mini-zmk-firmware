@@ -46,40 +46,40 @@
         layer_0 {
             display-name = "Base";
             bindings = <
-                &none  &kp Q            &kp W            &kp E             &kp R             &kp T             &kp Y             &au_ue U U         &kp I             &au_oe O O         &kp P             &none
-                &none  &au_ae A A       &au_ss S S       &kp D             &kp F             &kp G             &kp H             &kp J             &kp K             &kp L             &kp SEMI          &none
-                &mo 7  &ht_left_any LCTRL Z &ht_left_any LCMD X  &ht_left_any LALT C  &kp V             &kp B             &kp N             &kp M             &ht_right RALT COMMA &ht_right RCMD DOT &ht_right RCTRL SLASH &none
-                                              &mo 6          &lt L1 SPACE   &kp LSHFT        &mt LC(LS(LALT)) BSPC   &lt L2 ENTER
+                &none   &kp Q                 &kp W                &kp E                &kp R               &kp T              &kp Y               &au_ue U U            &kp I                  &au_oe O O             &kp P                    &none
+                &none   &au_ae A A            &au_ss S S           &kp D                &kp F               &kp G              &kp H               &kp J                  &kp K                  &kp L                   &kp SEMI                 &none
+                &mo 7   &ht_left_any LCTRL Z  &ht_left_any LCMD X  &ht_left_any LALT C  &kp V               &kp B              &kp N               &kp M                  &ht_right RALT COMMA   &ht_right RCMD DOT      &ht_right RCTRL SLASH    &none
+                                               &mo 6                &lt L1 SPACE          &kp LSHFT           &mt LC(LS(LALT)) BSPC                                                          &lt L2 ENTER
             >;
         };
 
         layer_1 {
             display-name = "Icons/Num";
             bindings = <
-                &none  &td_excl            &kp AT              &kp DLLR           &td_astrk         &td_bkt            &kp N0   &kp N1   &kp N2   &kp N3   &td_dot    &none
-                &none  &ht_left LCTRL AMPS &ht_left LCMD UNDER &ht_left LSHFT MINUS &td_qt         &td_par            &kp PLUS &kp N4   &kp N5   &kp N6   &kp COLON  &none
-                &none  &kp PIPE            &kp PRCNT           &kp CARET          &td_grave         &td_brc            &kp EQUAL &kp N7  &kp N8  &kp N9  &td_slash  &none
-                                               &mo 6           &kp BSPC          &kp LSHFT        &mt LC(LS(LALT)) BSPC   &to L3
+                &none   &td_excl              &kp AT               &kp DLLR             &td_astrk           &td_bkt            &kp N0              &kp N1                 &kp N2                 &kp N3                  &td_dot                  &none
+                &none   &ht_left LCTRL AMPS   &ht_left LCMD UNDER  &ht_left LSHFT MINUS &td_qt              &td_par            &kp PLUS            &kp N4                 &kp N5                 &kp N6                  &kp COLON                &none
+                &none   &kp PIPE              &kp PRCNT            &kp CARET            &td_grave           &td_brc            &kp EQUAL           &kp N7                 &kp N8                 &kp N9                  &td_slash                &none
+                                              &mo 6               &kp BSPC             &kp LSHFT           &mt LC(LS(LALT)) BSPC                                                         &to L3
             >;
         };
 
         layer_2 {
             display-name = "Ctrl";
             bindings = <
-                &none  &none            &kp LC(LA(N1)) &kp LBKT   &kp RBKT   &none   &none      &none    &none    &none     &none    &none
-                &none  &kp LCTRL        &kp LC(LA(N4)) &kp LPAR   &kp RPAR   &none   &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &none    &none
-                &none  &none            &kp LC(LA(N7)) &kp LBRC   &kp RBRC   &none   &none      &none    &none    &none     &none    &none
-                                           &mo 6        &kp BSPC     &kp LSHFT  &kp SPACE       &to L0
+                &none   &none                 &kp LC(LA(N1))       &kp LBKT             &kp RBKT            &kp APOS           &none               &none                  &none                  &none                   &none                    &none
+                &none   &kp LCTRL             &kp LC(LA(N4))       &kp LPAR             &kp RPAR            &kp DQT            &kp LEFT            &kp DOWN               &kp UP                 &kp RIGHT               &none                    &none
+                &none   &none                 &kp LC(LA(N7))       &kp LBRC             &kp RBRC            &kp GRAVE          &none               &none                  &none                  &none                   &none                    &none
+                                              &mo 6                &kp BSPC             &kp LSHFT           &kp SPACE                                                                  &to L0
             >;
         };
 
         layer_3 {
             display-name = "Xtra";
             bindings = <
-                &batt_print      &shrug          &lgtm           &gcm            &kp C_VOLUME_UP    &kp C_BRIGHTNESS_INC    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3     &out OUT_TOG      &bt BT_CLR
-                &kp C_AL_LOCK    &sudo           &none           &none           &kp C_VOLUME_DOWN  &kp C_BRIGHTNESS_DEC    &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP       &kp C_NEXT        &none
-                &kp C_AL_COFFEE  &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE  &none                   &new_dir      &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp PRINTSCREEN   &none
-                                                                                                   &none  &none  &none    &none         &none
+                &batt_print     &shrug          &lgtm           &gcm            &kp C_VOLUME_UP    &kp C_BRIGHTNESS_INC  &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2       &bt BT_SEL 3      &out OUT_TOG         &bt BT_CLR
+                &kp C_AL_LOCK   &sudo           &none           &none           &kp C_VOLUME_DOWN  &kp C_BRIGHTNESS_DEC  &none           &kp C_PREVIOUS   &kp C_PLAY_PAUSE   &kp C_STOP        &kp C_NEXT           &none
+                &kp C_AL_COFFEE &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE     &none                 &new_dir        &kp K_MUTE       &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp PRINTSCREEN      &none
+                                                                                                     &none               &none            &none               &none             &none
             >;
         };
 
@@ -87,40 +87,40 @@
         layer_4 {
             display-name = "Reserved";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                                      &trans &trans &trans &trans &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_5 {
             display-name = "Reserved2";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                                      &trans &trans &trans &trans &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_6 {
             display-name = "Mouse (Slow)";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &mkp MCLK &mkp LCLK &mkp RCLK &mkp MB4 &mkp MB5 &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                                      &trans &trans &trans &trans &trans
+                &trans  &trans  &trans  &trans     &trans     &trans     &trans    &trans    &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MB4  &mkp MB5  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans     &trans     &trans     &trans    &trans    &trans  &trans  &trans  &trans
+                                &trans  &trans     &trans     &trans     &trans
             >;
         };
 
         layer_7 {
             display-name = "Scroll";
             bindings = <
-                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                                      &trans &trans &trans &trans &trans
+                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+                                &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
