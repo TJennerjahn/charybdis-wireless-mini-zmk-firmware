@@ -1,31 +1,17 @@
 import json
-from pathlib import Path
 
 # === CONFIGURATION ===
 # ZMK renamed the Nice!Nano v2 board from "nice_nano_v2" to "nice_nano" in newer trees.
 board = "nice_nano"
-# automatically find all *.keymap filenames under ../config/keymap
-keymap_dir = Path(__file__).parent.parent / "config" / "keymap"
-keymaps = sorted(p.stem for p in keymap_dir.glob("*.keymap"))
-
-# Map each format to the shields it should build
-format_shields = {
-    "bt": ["charybdis_left", "charybdis_right"],
-    "dongle": ["charybdis_left", "charybdis_right", "charybdis_dongle"],
-    "reset": ["settings_reset"],
-}
 
 groups = []
-for keymap in keymaps:
-    for fmt in ["bt", "dongle"]:
-        groups.append({
-            "keymap": keymap,
-            "format": fmt,
-            "name": f"{keymap}-{fmt}",
-            "board": board,
-        })
+groups.append({
+    "keymap": "qwerty",
+    "format": "dongle",
+    "name": "qwerty-dongle",
+    "board": board,
+})
 
-# single reset entry
 groups.append({
     "keymap": "default",
     "format": "reset",
