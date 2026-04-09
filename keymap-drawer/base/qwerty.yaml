@@ -133,12 +133,12 @@ layers:
   - GIT COMMIT
   - VOLUME UP
   - BRIGHT ▲
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - OUT TOG
-  - BT CLR
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - AL LOCK
   - sudo!!
   - ''
