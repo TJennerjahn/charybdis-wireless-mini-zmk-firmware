@@ -77,7 +77,7 @@ bash ./local-build/build_setup.sh
       - CONFIG_LOG=y
       - CONFIG_LOG_DEFAULT_LEVEL=3
       - CONFIG_LOG_MODE_DEFERRED=n
-      - CONFIG_PMW3610_LOG_LEVEL_DBG=y
+      - CONFIG_PMW3610_ALT_LOG_LEVEL_DBG=y
       - CONFIG_LOG_BACKEND_UART=y
       - CONFIG_USB_CDC_ACM=y
       - CONFIG_LOG_MODE_DEFERRED=n
