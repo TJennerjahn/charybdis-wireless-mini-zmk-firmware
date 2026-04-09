@@ -2,7 +2,7 @@
 
 ## Intro
 
-This repository offers pre-configured ZMK firmware designed for [Wireless Charybdis keyboards](https://github.com/280Zo/charybdis-wireless-mini-3x6-build-guide?tab=readme-ov-file). It supports both Bluetooth/USB and Dongle configurations and uses the latest input listener and processors to act as a bridge between the trackball and the rest of the system.
+This repository offers pre-configured ZMK firmware designed for [Wireless Charybdis keyboards](https://github.com/280Zo/charybdis-wireless-mini-3x6-build-guide?tab=readme-ov-file). It is scoped to a single target: the qwerty dongle configuration, using the latest input listener and processors to act as a bridge between the trackball and the rest of the system.
 
 If you want to customize things the repo is set up to build through GitHub Actions (just clone and run it), or you can use the
 containerized build script that will build all firmwares locally with a single command.
@@ -12,7 +12,7 @@ containerized build script that will build all firmwares locally with a single c
 
 ### Flashing the Firmware
 
-Download your choice of firmware from the Releases page. Choose a combination of format (Bluetooth/Dongle) and layout (QWERTY, etc.), then follow the steps below to flash it to your keyboard
+Download the firmware from the Releases page, then follow the steps below to flash it to your keyboard:
 
 1. Unzip the firmware zip
 2. Plug the right half into the computer through USB
@@ -24,7 +24,7 @@ Download your choice of firmware from the Releases page. Choose a combination of
 8. You should now be able to use your keyboard
 
 > [!NOTE]  
-> If you are flashing the firmware for the first time, or if you're switching between the dongle and the Bluetooth/USB configuration, flash the reset firmware to all the devices first
+> If you are flashing the firmware for the first time, flash the reset firmware to all the devices first.
 
 ### Overview & Usage
 
@@ -76,35 +76,31 @@ To see all the layers check out the [full render](keymap-drawer/qwerty.svg).
   - Tap: Backspace
   - Hold: Layer 1 (numbers) while the key is held
   - Double-Tap & Hold: Keeps Backspace held
-- **Bluetooth profile quick-swap:** Jump to the EXTRAS layer and tap the dedicated BT-select keys to pair or switch among up to four saved hosts (plus BT CLR to forget all).
 - **PMW3610 low power trackball sensor driver:** Provided by [badjeff](https://github.com/badjeff/zmk-pmw3610-driver)
   - Patched to remove build warnings and prevent cursor jump on wake
 - **Hold-tap side-aware triggers:** Each HRM key only becomes a modifier if the opposite half is active, preventing accidental holds while one-handed.
 - **Quick-tap / prior-idle:** Tuned for faster mod-vs-tap detection.
-- **ZMK Studio:** Supported on BT and dongle builds for quick and easy keymap adjustments.
+- **ZMK Studio:** Supported on the USB-attached dongle build for quick keymap adjustments.
 
 
 ## Customize Keymaps, Layers, & Trackball
 
 This section will help you personalize your firmware. Everything—from keys and layers to advanced trackball behaviors—can easily be customized, even if you're new to ZMK.
 
-### Building Only Specific Keymaps or Shields
+### Supported Target
 
-By default both Bluetooth and Dongle formats will build firmware pairs for the QWERTY, Coleman DH, and Graphite keymaps. To save time and streamline your builds, you can build just a single keymap or shield that you're interested in:
+This repo is intentionally narrowed to one firmware target:
 
-**Single keymap:**
-Any `.keymap` files in the `config/keymap/` directory will be automatically built. By default QWERTY and Colemak DH are included, but you can add or remove as many as you'd like as long as there is at least one .keymap file to process.
-Some additional keymaps are available in the extra-keymaps directory.
-
-**Single shield format (Dongle or Bluetooth):**
-Delete the shield directory (charybdis_dongle or charybdis_bt) from the config/boards/shields/ folder to build only the format you need.
+- qwerty keymap
+- dongle-based split setup
+- `settings_reset` helper firmware
 
 
 ### Modify Key Mappings
 
 **ZMK Studio**
 
-[ZMK Studio](https://zmk.studio/) allows users to update functionality during runtime. This repo enables it for both Bluetooth and dongle builds (on the USB-attached central device).
+[ZMK Studio](https://zmk.studio/) allows users to update functionality during runtime. This repo enables it on the USB-attached dongle build.
 
 To change the visual layout of the keys, the physical layout must be updated. This is the charybdis-layouts.dtsi file, which handles the actual physical positions of the keys. Though they may appear to be similar, this is different than the matrix transform file (charybdis.json) which handles the electrical matrix to keymap relationship.
 
@@ -129,7 +125,7 @@ Using a GUI to generate the keymap file before building the firmware is another 
 
 To change a key layout choose a behavior you'd like to assign to a key, then choose a parameter code. This process is more clearly outlined on ZMK's [Keymaps & Behaviors](https://zmk.dev/docs/features/keymaps) page. All keycodes are documented [here](https://zmk.dev/docs/codes) page
 
-Open the config/keymap/charybdis.keymap file and change keys, or add/remove layers, then merge the changes and re-flash the keyboard with the updated firmware.
+Open [config/keymap/qwerty.keymap](config/keymap/qwerty.keymap) and change keys, or add/remove layers, then rebuild and re-flash the keyboard.
 
 
 ### Modifying Trackball Behavior

@@ -7,10 +7,9 @@ requires: [pro_micro]
 features:
   - Keys
   - QWERTY
-  - Colemak DH
   - Mouse keys pointer
   - Trackball pointer
-  - Dongle/Bluetooth/USB
+  - Dongle/USB
 siblings:
   - charybdis_left
   - charybdis_right
