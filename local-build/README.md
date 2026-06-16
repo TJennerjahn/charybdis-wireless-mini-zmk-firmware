@@ -6,7 +6,7 @@ This setup provides a **fast, containerized build environment** for [ZMK Firmwar
 - **No GitHub Actions delay**
 - **No toolchain installation required**
 - **Cross-platform, reproducible builds**
-- **Automatic build discovery for the repo's qwerty dongle target**
+- **Automatic shield and keymap discovery**
 - **PMW3610 driver integration**
 - **Isolated build sandboxes for each shield**
 - **ZMK Studio USB-UART support**
@@ -35,11 +35,22 @@ docker-compose run --rm builder
 
 ### 3. Firmware Output
 
-Firmware files will be placed under the `firmwares` directory in the repo root on your host. They are grouped under the dongle shield and qwerty keymap:
+Firmware files will be placed in under the firmwares directory in the root of the repo on your host. They will be grouped by format (bt/dongle) and keymap:
 
 ```bash
 firmwares/
+├── charybdis_bt
+│   ├── colemak_dh
+│   │   ├── charybdis_left.uf2
+│   │   └── charybdis_right.uf2
+│   └── qwerty
+│       ├── charybdis_left.uf2
+│       └── charybdis_right.uf2
 ├── charybdis_dongle
+│   ├── colemak_dh
+│   │   ├── charybdis_dongle.uf2
+│   │   ├── charybdis_left.uf2
+│   │   └── charybdis_right.uf2
 │   └── qwerty
 │       ├── charybdis_dongle.uf2
 │       ├── charybdis_left.uf2
@@ -77,7 +88,7 @@ bash ./local-build/build_setup.sh
       - CONFIG_LOG=y
       - CONFIG_LOG_DEFAULT_LEVEL=3
       - CONFIG_LOG_MODE_DEFERRED=n
-      - CONFIG_PMW3610_ALT_LOG_LEVEL_DBG=y
+      - CONFIG_PMW3610_LOG_LEVEL_DBG=y
       - CONFIG_LOG_BACKEND_UART=y
       - CONFIG_USB_CDC_ACM=y
       - CONFIG_LOG_MODE_DEFERRED=n

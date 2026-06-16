@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# build_zmk_locally.sh - Build the repo's ZMK firmware targets locally
+# build_zmk_locally.sh - Build ZMK firmware locally based on discovered shields and keymaps
 
 set -euo pipefail
 start_time=$(date +%s)
@@ -11,6 +11,7 @@ REPO_ROOT="${REPO_ROOT:-$PWD}"                     # path to original repo root
 SHIELD_PATH="${SHIELD_PATH:-boards/shields}"       # where shield folders live relative to repo root
 CONFIG_PATH="${CONFIG_PATH:-config}"               # where source keymaps/config live
 FALLBACK_BINARY="${FALLBACK_BINARY:-bin}"          # fallback firmware extension
+SCRIPT_PATH="$REPO_ROOT/scripts/convert_keymap.py" # path to script that converts keymaps
 
 
 # --- ZMK WORKSPACE ---
@@ -34,6 +35,14 @@ west update
 echo "🛠️  Setting Zephyr build environment..."
 west zephyr-export
 
+# Zephyr 4.x includes a PMW3610 devicetree binding; zmk-pmw3610-driver ships one too.
+# This repo currently relies on the external module's binding/property names, so remove
+# the Zephyr binding to avoid duplicate-compatible dtlib errors.
+if [ -f "zmk-pmw3610-driver/dts/bindings/pixart,pmw3610.yml" ]; then
+  rm -f "zephyr/dts/bindings/input/pixart,pmw3610.yaml" \
+        "zephyr/dts/bindings/input/pixart,pmw3610.yml" 2>/dev/null || true
+fi
+
 # Set permissions so users can delete them
 echo "🛠️  Setting permissions on ZMK resources:"
 chmod -R 777 .west zmk zephyr modules zmk-pmw3610-driver
@@ -49,6 +58,12 @@ echo "📁 Copying source keymaps from $CONFIG_PATH to temporary directory"
 KEYMAP_TEMP="/tmp/keymaps"
 rm -rf "$KEYMAP_TEMP" && mkdir -p "$KEYMAP_TEMP"
 cp "$REPO_ROOT/$CONFIG_PATH/keymap"/*.keymap "$KEYMAP_TEMP/"
+
+# Generate additional keymaps and adjust names
+# echo "🔧 Generating additional keymaps"
+# python3 "$SCRIPT_PATH" -c q2c --in-path "$KEYMAP_TEMP/charybdis.keymap"
+# python3 "$SCRIPT_PATH" -c q2g --in-path "$KEYMAP_TEMP/charybdis.keymap"
+# mv "$KEYMAP_TEMP/charybdis.keymap" "$KEYMAP_TEMP/qwerty.keymap"
 
 # Discover shields
 echo "🔍 Discovering shields in sandbox: $REPO_ROOT/$SHIELD_PATH"
@@ -163,9 +178,11 @@ for shield in "${shields[@]}"; do
       printf "🗂  %s\n" "→ Build dir: $BUILD_DIR"
       printf "🛡  %s\n" "→ Building: shield=$shield, target=$target keymap=$keymap, board=$board"
 
-      # Turn on ZMK Studio for the USB-attached dongle central.
+      # Turn on ZMK Studio for the device that is USB-attached to the host:
+      # - BT format: right half is central + USB
+      # - Dongle format: charybdis_dongle is central + USB
       STUDIO_SNIPPET=""
-      if [[ "$shield" == *dongle* && "$target" == *dongle ]]; then
+      if [[ ( "$shield" == *bt* && "$target" == *right ) || ( "$shield" == *dongle* && "$target" == *dongle ) ]]; then
         STUDIO_SNIPPET="-S studio-rpc-usb-uart"
       fi
 
